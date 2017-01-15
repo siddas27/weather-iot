@@ -13,6 +13,22 @@
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="/static/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+	    <script type="text/javascript">
+	      $(document).ready(function(){
+	        setInterval(function(){
+	          $.ajax({
+	            url :"{{ url_for('rtemp') }}",
+	            method : 'GET',
+	            success : function(response){
+	              $('#tt').html(response.temp)
+	            }
+	          })
+	        },1000)
+	      })
+	    </script>
 		
 		<!--[if lt IE 9]>
 		<script src="/static/js/ie-support/html5.js"></script>
@@ -72,7 +88,7 @@
 							<div class="forecast-content">
 								<div class="location">New York</div>
 								<div class="degree">
-									<div class="num">{{temp}}<sup>o</sup>C</div>
+									<div class="num" ><h3 id="tt">gh</h3><sup>o</sup>C</div>
 									<div class="forecast-icon">
 										<img src="/static/images/icons/icon-1.svg" alt="" width=90>
 									</div>	

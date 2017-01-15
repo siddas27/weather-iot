@@ -22,20 +22,14 @@ def wrt_data_tsv():		#write data for tsv
 		fop.write(t+"\t"+temp+"\n")
 		fop.close()
 
-def read_temp():		#read temp data
-	fof = open("temp.txt","r")
-	temp = fof.read()
-	fof.close()
-	return temp
-
 def Main():
 	print "main"
 	t1 = Thread(target=gen_data)
 	t2 = Thread(target=wrt_data_tsv)
-	t3 = Thread(target=read_temp)
+	
 	t1.start()
 	t2.start()
-	t3.start()
+	
 
 if __name__ == '__main__':
 	Main()
