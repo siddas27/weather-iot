@@ -26,10 +26,8 @@ def Main():
 	print "main"
 	t1 = Thread(target=gen_data)
 	t2 = Thread(target=wrt_data_tsv)
-	
 	t1.start()
 	t2.start()
-	
 
 if __name__ == '__main__':
 	Main()
