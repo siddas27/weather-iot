@@ -1,10 +1,11 @@
+from temps.py import read_temp
 from flask import Flask, render_template, url_for
 from flask import jsonify, request
 
 app = Flask(__name__)
 
 
-
+temp1 = read_temp()
 
 @app.route('/')
 def server():
@@ -14,9 +15,7 @@ def server():
 @app.route('/rtemp', methods=['GET'])
 def rtemp():
 	global temp1
-	fof = open("temp.txt","r")
-	temp1 = fof.read()
-	fof.close()
+	temp1 = read_temp()
 	return jsonify(temp=temp1)
 
 if __name__ =='__main__':
