@@ -1,4 +1,4 @@
-from temps.py import read_temp
+from temps import read_temp
 from threading import Thread
 from random import randint
 from time import gmtime, strftime, sleep
